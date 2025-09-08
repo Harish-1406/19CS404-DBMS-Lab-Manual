@@ -63,35 +63,35 @@ The Central Library wants to manage book lending and cultural events.
 - Overdue fines apply for late returns.
 
 ### ER Diagram:
-*Paste or attach your diagram here*  
-![ER Diagram](er_diagram_library.png)
+<img width="728" height="852" alt="image" src="https://github.com/user-attachments/assets/1702e1d1-3120-4d28-b9df-936127b873ba" />
+
 
 ### Entities and Attributes
 
 | Entity | Attributes (PK, FK) | Notes |
 |--------|--------------------|-------|
-|MEMBER|Member_ID (PK), Name, Email, Phone|Library members       |
-|BOOK|Book_ID (PK), Title, Author, Category                    |Each book has category (Fiction, etc.) |
-|LOAN |Loan_ID (PK), Book_ID (FK), Member_ID (FK), Loan_Date, Return_Date|Tracks borrowing details       |
-|EVENT|Event_ID (PK), Title, Date, Time                    |Cultural events organized by library       |
-|SPEAKER|Speaker_ID (PK), Name, Expertise                    |Authors or guest speakers       |
+|    Member    |      MemberID (PK), Name, Address, Phone, Email              |   Library members    |
+|      Book  |      BookID (PK), Title, Author, Category, ISBN, PubYear              |    Books in collection   |
+|    Loan    |        LoanID (PK), LoanDate, DueDate, ReturnDate, FineAmount, MemberID (FK), BookID (FK)            |     Tracks book borrowing  |
+|     Event   |         EventID (PK), Name, Description, EventDate, StartTime, EndTime, RoomID (FK)           |    Library cultural events   |
+|    Speaker    |         SpeakerID (PK), Name, Bio, ContactInfo           |    Event speakers/authors   |
+|      Booking  |             BookingID (PK), BookingDate, StartTime, EndTime, RoomID (FK), MemberID (FK)       |    Study room reservations   |
 
 ### Relationships and Constraints
 
 | Relationship | Cardinality | Participation | Notes |
 |--------------|------------|---------------|-------|
-|Member–Loan (Borrows) |1:M |Total               |Each member can borrow many books       |
-|Book–Loan |            1:M |Total       |A book can appear in many loan records|
-|Member–Event (Registers)|M:N|Partial               |Members can register for events       |
-|Event–Speaker|            M:N|Total       |Each event must have at least one speaker|
+|      Member–Book        |       M:N     |        Mandatory for Loan, Optional for Member/Book       |   Members borrow books    |
+|    Member–Event          |      M:N      |     Mandatory for Registration, Optional for Member/Event          |   Members register for events    |
+|   Event–Speaker  |      M:N      |    Mandatory for EventSpeaker, Optional for Event/Speaker |    Events may have multiple speakers   |
+|   Event–Room           |      1:N      |    Mandatory for Event, Optional for Room           |  Each event in one room     |
+|  Room–Booking            |      1:N   |      Mandatory for Booking, Optional for Room         |   Rooms booked for study by members    |
 
 
 ### Assumptions
-Each event must take place in one room.
-
-Multiple speakers can be assigned to one event.
-
-Fine is applied only if return date > due date.
+- Overdue fines are stored per Loan record.
+- BookCopy not modeled
+- Rooms serve both events and study bookings.
 
 # Scenario C: Restaurant Table Reservation & Ordering
 
@@ -107,8 +107,8 @@ A popular restaurant wants to manage reservations, orders, and billing.
 - Waiters assigned to serve reservations.
 
 ### ER Diagram:
-*Paste or attach your diagram here*  
-![ER Diagram](er_diagram_restaurant.png)
+<img width="1009" height="603" alt="image" src="https://github.com/user-attachments/assets/72af93ad-03e0-4dc8-b7c2-59fc13bf16b3" />
+
 
 ### Entities and Attributes
 
