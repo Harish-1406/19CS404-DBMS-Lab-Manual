@@ -56,7 +56,9 @@ ON table1.column = table2.column;
 --
 Write a SQL statement to make a report with customer name, city, order number, order date, and order amount in ascending order according to the order date to determine whether any of the existing customers have placed an order or not.
 
+
 Sample table: orders
+
 
 ord_no      purch_amt   ord_date    customer_id  salesman_id
 ----------  ----------  ----------  -----------  -----------
@@ -72,7 +74,10 @@ ord_no      purch_amt   ord_date    customer_id  salesman_id
 70012       250.45      2012-06-27  3008         5002
 70011       75.29       2012-08-17  3003         5007
 70013       3045.6      2012-04-25  3002         5001
+
+
 Sample table: customer
+
 
  customer_id |   cust_name    |    city    | grade | salesman_id 
 -------------+----------------+------------+-------+-------------
@@ -83,6 +88,7 @@ Sample table: customer
         3004 | Fabian Johnson | Paris      |   300 |        5006
         3009 | Geoff Cameron  | Berlin     |   100 |        5003
         3003 | Jozy Altidor   | Moscow     |   200 |        5007
+  
         
 ```sql
 SELECT 
