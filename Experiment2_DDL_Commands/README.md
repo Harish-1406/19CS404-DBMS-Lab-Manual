@@ -187,10 +187,11 @@ RENAME COLUMN job_title TO Designation;
 **Question 4**
 ---
 Insert the below data into the Student_details table, allowing the Subject and MARKS columns to take their default values.
-
+```
 RollNo      Name          Gender      
 ----------  ------------  ----------  
 204         Samuel Black  M          
+```
 
 Note: The Subject and MARKS columns will use their default values.
 
@@ -208,8 +209,11 @@ VALUES(204,'Samuel Black','M');
 ---
 Create a table named ProjectAssignments with the following constraints:
   AssignmentID as INTEGER should be the primary key.
+  
   EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
+  
   ProjectID as INTEGER should be a foreign key referencing Projects(ProjectID).
+  
   AssignmentDate as DATE should be NOT NULL.
 
 ```sql
@@ -231,8 +235,11 @@ FOREIGN KEY (ProjectID) REFERENCES Projects(ProjectID)
 **Question 6**
 ---
 Create a table named Department with the following constraints:
+
   DepartmentID as INTEGER should be the primary key.
+  
   DepartmentName as TEXT should be unique and not NULL.
+  
   Location as TEXT.
 
 ```sql
@@ -250,12 +257,13 @@ Location TEXT
 **Question 7**
 ---
 Write a SQL Query for inserting the below values in the table Customers
-
+  ```
 ID               NAME             AGE  ADDRESS     SALARY      
 ---------------  ---------------  ---  ----------  ----------  
 1                Ramesh           32   Ahmedabad   2000
 2                Khilan           25   Delhi       1500
 3                Kaushik          23   Kota        2000
+```
 ```sql
 INSERT INTO Customers(ID,NAME,AGE,ADDRESS,SALARY)
 VALUES(1,'Ramesh',32,'Ahmedabad',2000);
@@ -289,7 +297,9 @@ FROM Out_of_print_books;
 Create a table named Orders with the following columns:
 
   OrderID as INTEGER
+  
   OrderDate as TEXT
+  
   CustomerID as INTEGER
 
 
@@ -310,7 +320,7 @@ CustomerID INTEGER
 Write a SQL query to Add a new column mobilenumber as number in the Student_details table.
 
 Sample table: Student_details
-
+```
  cid              name             type   notnull     dflt_value  pk
 ---------------  ---------------  -----  ----------  ----------  ----------
 0                RollNo           int    0                       1
@@ -318,7 +328,7 @@ Sample table: Student_details
 2                Gender           TEXT   1                       0
 3                Subject          VARCH  0                       0
 4                MARKS            INT (  0                       0
-
+```
 ```sql
 ALTER TABLE Student_details
 ADD COLUMN mobilenumb number;
