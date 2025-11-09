@@ -179,26 +179,33 @@ where contact_person like '%Singh%'
 
 
 **Question 6**
----Write a SQL query to Delete customers from 'customer' table where 'GRADE' is not equal to 3.
+Write a SQL query to identify the top 3 most expensive discounted products. Return product_id, original_price, discount_percentage, and discounted_price.
 
- 
-Sample table: Customer
+Sample table: Products
+  ```
+product_id | original_price | discount_percentage
 
-+-----------+-------------+-------------+--------------+--------------+-------+-------------+-------------+-------------+---------------+--------------+------------+  
-|CUST_CODE  | CUST_NAME   | CUST_CITY   | WORKING_AREA | CUST_COUNTRY | GRADE | OPENING_AMT | RECEIVE_AMT | PAYMENT_AMT |OUTSTANDING_AMT| PHONE_NO     | AGENT_CODE |
-+-----------+-------------+-------------+--------------+--------------+-------+-------------+-------------+-------------+---------------+--------------+------------+
-| C00013    | Holmes      | London      | London       | UK           |     2 |     6000.00 |     5000.00 |     7000.00 |       4000.00 | BBBBBBB      | A003       |
-| C00001    | Micheal     | New York    | New York     | USA          |     2 |     3000.00 |     5000.00 |     2000.00 |       6000.00 | CCCCCCC      | A008       |
-| C00020    | Albert      | New York    | New York     | USA          |     3 |     5000.00 |     7000.00 |     6000.00 |       6000.00 | BBBBSBB      | A008       |
+ ------------+----------------+--------------------- 
 
-```sql
-delete from customer
-where GRADE <> 3
+101 | 50.00 | 0.10 
+
+102 | 150.00 | 0.15 
+
+103 | 200.00 | 0.20 
+
+104 | 300.00 | 0.25
+```
+ ```sql
+select product_id,original_price,discount_percentage,original_price*(1-discount_percentage) as discounted_price
+from products
+order by discounted_price desc
+limit 3;
 ```
 
 **Output:**
 
-<img width="586" height="478" alt="image" src="https://github.com/user-attachments/assets/dccbdff4-8de9-4393-b1be-42aaed296a1f" />
+<img width="1091" height="277" alt="image" src="https://github.com/user-attachments/assets/51cb4ddd-a3eb-4675-a9d3-a8b5e5bd4495" />
+
 
 
 **Question 7**
