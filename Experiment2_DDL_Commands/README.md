@@ -106,13 +106,21 @@ CREATE TABLE Table_Name (
 **Question 1**
 --
 Create a new table named item with the following specifications and constraints:
+
   item_id as TEXT and as primary key.
+  
   item_desc as TEXT.
+  
   rate as INTEGER.
+  
   icom_id as TEXT with a length of 4.
+  
   icom_id is a foreign key referencing com_id in the company table.
+  
   The foreign key should cascade updates and deletes.
+  
   item_desc and rate should not accept NULL.
+  
 
 ```sql
 CREATE TABLE item(
@@ -135,10 +143,15 @@ ON DELETE CASCADE
 **Question 2**
 ---
 Create a table named Attendance with the following constraints:
+
   AttendanceID as INTEGER should be the primary key.
+  
   EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
+  
   AttendanceDate as DATE.
+  
   Status as TEXT should be one of 'Present', 'Absent', 'Leave'.
+  
 
 ```sql
 CREATE TABLE Attendance(
