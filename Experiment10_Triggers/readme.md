@@ -33,7 +33,7 @@ END;
 
 **Expected Output:**
 - A new entry is added to the `employee_log` table each time a new record is inserted into the `employees` table.
-```
+```sql
 CREATE TABLE employees (
     emp_id     NUMBER PRIMARY KEY,
     emp_name   VARCHAR2(100),
@@ -73,7 +73,7 @@ SELECT * FROM employee_log;
 
 **Expected Output:**
 - If an attempt is made to delete a record from `sensitive_data`, an error message is raised, e.g., `ERROR: Deletion not allowed on this table.`
-```
+```sql
 CREATE TABLE sensitive_data (
     data_id    NUMBER PRIMARY KEY,
     data_value VARCHAR2(100)
@@ -104,7 +104,7 @@ DELETE FROM sensitive_data WHERE data_id = 1;
 **Expected Output:**
 - The `last_modified` column in the `products` table is updated automatically to the current date and time when any record is updated.
 
-```
+```sql
 CREATE TABLE products (
     product_id     NUMBER PRIMARY KEY,
     product_name   VARCHAR2(100),
@@ -147,7 +147,7 @@ WHERE product_id = 101;
 
 **Expected Output:**
 - The `audit_log` table will maintain a count of how many updates have been made to the `customer_orders` table.
-```
+```sql
 CREATE TABLE customer_orders (
     order_id     NUMBER PRIMARY KEY,
     customer_id  NUMBER,
@@ -188,7 +188,7 @@ SELECT * FROM audit_log;
 
 **Expected Output:**
 - If the inserted salary in the `employees` table is below the condition (e.g., salary < 3000), the insert operation is blocked, and an error message is raised, such as: `ERROR: Salary below minimum threshold.`
-```
+```sql
 CREATE TABLE employee (
     emp_id     NUMBER PRIMARY KEY,
     emp_name   VARCHAR2(100),
@@ -214,6 +214,7 @@ VALUES (5, 'Harish', 4500);
 
 ## RESULT
 Thus, the PL/SQL trigger programs were written and executed successfully.
+
 
 
 
